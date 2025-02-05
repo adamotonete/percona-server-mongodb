@@ -163,8 +163,8 @@ struct LDAPConnInfo {
 using namespace fmt::literals;
 
 static LDAP* create_connection(void* connect_cb_arg = nullptr,
-                               logv2::LogSeverity logSeverity = logv2::LogSeverity::Debug(1)) {
-    LDAP* ldap = nullptr;
+                              logger::LogSeverity logSeverity = logger::LogSeverity::Debug(1)) {
+    LDAP* ldap;
     auto uri = ldapGlobalParams.ldapURIList();
 
     auto res = ldap_initialize(&ldap, uri.c_str());
