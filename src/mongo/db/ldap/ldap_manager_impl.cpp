@@ -164,7 +164,7 @@ using namespace fmt::literals;
 
 static LDAP* create_connection(void* connect_cb_arg = nullptr,
                               logger::LogSeverity logSeverity = logger::LogSeverity::Debug(1)) {
-    LDAP* ldap;
+    LDAP* ldap = nullptr;
     auto uri = ldapGlobalParams.ldapURIList();
 
     auto res = ldap_initialize(&ldap, uri.c_str());
